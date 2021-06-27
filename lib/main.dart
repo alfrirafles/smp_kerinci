@@ -12,7 +12,21 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Title'),
+          leading: IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {},
+          ),
+          title: Text('Kalender'),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.share),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {},
+            ),
+          ],
         ),
         body: Container(
           child: Center(
