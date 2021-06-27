@@ -3,9 +3,12 @@ import 'package:smp_kerinci/pages/landing_page.dart';
 import 'package:smp_kerinci/pages/calendar_page.dart';
 import 'package:smp_kerinci/pages/announcement_page.dart';
 import 'utilities/routes.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
-  runApp(HomePage());
+  setPathUrlStrategy();
+  initializeDateFormatting().then((_) => runApp(HomePage()));
 }
 
 class HomePage extends StatelessWidget {
