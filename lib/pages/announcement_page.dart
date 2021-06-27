@@ -45,9 +45,10 @@ class AnnouncementPage extends StatelessWidget {
                 children: [
                   Container(
                     child: SvgPicture.asset(
-                      '../' +
-                          '$kImageAssetsSourceDirectory' +
-                          'image_placeholder.svg',
+                      '$kImageAssetsSourceDirectory' + 'image_placeholder.svg',
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height /
+                          announcements.length,
                     ),
                   ),
                   Text(
