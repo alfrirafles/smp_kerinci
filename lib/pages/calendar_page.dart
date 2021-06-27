@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:smp_kerinci/utilities/constants.dart';
 
 class CalendarPage extends StatelessWidget {
-  const CalendarPage({
-    Key? key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kTopNavBackgroundColor,
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {},
