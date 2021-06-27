@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smp_kerinci/pages/templates/base_page.dart';
 import 'package:smp_kerinci/utilities/constants.dart' as constants;
 import 'package:smp_kerinci/components/landing_banner.dart';
+import 'package:smp_kerinci/utilities/routes.dart';
 
 class LandingPage extends StatelessWidget {
   @override
@@ -14,21 +15,25 @@ class LandingPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             LandingBanner(
+              orientation: constants.Orientation.leftToRight,
               buttonTitle: 'Kalender',
-              buttonAction: () {},
               imageAssetName: 'calendar_flatline.svg',
               imageAssetLabel: 'Calendar Logo',
-              orientation: constants.Orientation.leftToRight,
+              buttonAction: () {
+                Navigator.pushNamed(context, '$calendarPageRoute');
+              },
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.20,
             ),
             LandingBanner(
+              orientation: constants.Orientation.rightToLeft,
               buttonTitle: 'Pengumuman',
-              buttonAction: () {},
               imageAssetName: 'news_flatline.svg',
               imageAssetLabel: 'Announcement Logo',
-              orientation: constants.Orientation.rightToLeft,
+              buttonAction: () {
+                Navigator.pushNamed(context, '$announcementPageRoute');
+              },
             ),
           ],
         ),
