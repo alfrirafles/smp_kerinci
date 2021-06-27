@@ -8,12 +8,13 @@ class BasePage extends StatelessWidget {
   final List<Widget>? topNavTrailing;
   final Widget body;
 
-  BasePage(
-      {required this.topNavTitle,
-      this.topNavTitleStyle,
-      this.topNavLeading,
-      this.topNavTrailing,
-      required this.body});
+  BasePage({
+    required this.topNavTitle,
+    this.topNavTitleStyle,
+    this.topNavLeading,
+    this.topNavTrailing,
+    required this.body,
+  });
 
   @override
   Widget build(BuildContext context) {
