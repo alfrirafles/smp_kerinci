@@ -17,7 +17,7 @@ class LandingPage extends StatelessWidget {
             LandingBanner(
               orientation: constants.Orientation.leftToRight,
               buttonTitle: 'Kalender',
-              imageAssetName: 'calendar_flatline.svg',
+              imageAssetName: 'calendar_illustration.svg',
               imageAssetLabel: 'Calendar Logo',
               buttonAction: () {
                 Navigator.pushNamed(context, '$calendarPageRoute');
@@ -29,7 +29,7 @@ class LandingPage extends StatelessWidget {
             LandingBanner(
               orientation: constants.Orientation.rightToLeft,
               buttonTitle: 'Pengumuman',
-              imageAssetName: 'news_flatline.svg',
+              imageAssetName: 'news_illustration.svg',
               imageAssetLabel: 'Announcement Logo',
               buttonAction: () {
                 Navigator.pushNamed(context, '$announcementPageRoute');
