@@ -31,7 +31,7 @@ class AnnouncementPage extends StatelessWidget {
     ];
     return BasePage(
       topNavTitle: 'Pengumuman',
-      body: AnnouncementList(announcements: announcements),
+      body: AnnouncementList(list: announcements),
     );
   }
 }

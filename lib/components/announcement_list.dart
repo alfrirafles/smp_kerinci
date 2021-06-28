@@ -6,36 +6,36 @@ import 'package:smp_kerinci/utilities/constants.dart';
 class AnnouncementList extends StatelessWidget {
   const AnnouncementList({
     Key? key,
-    required this.announcements,
+    required this.list,
   }) : super(key: key);
 
-  final List<Announcement> announcements;
+  final List<Announcement> list;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: announcements.length,
+      itemCount: list.length,
       itemBuilder: (context, index) {
         return Card(
           child: Padding(
             padding: kAnnouncementCardPadding,
             child: Column(
               children: [
-                _AnnouncementImage(announcements: announcements),
+                _AnnouncementImage(announcements: list),
                 Text(
-                  announcements[index].title,
+                  list[index].title,
                   style: kAnnouncementTitleTextStyle,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      announcements[index].formatDateTimeDisplay(),
+                      list[index].formatDateTimeDisplay(),
                     ),
-                    Text('Posted by: ' + announcements[index].postedBy),
+                    Text('Posted by: ' + list[index].postedBy),
                   ],
                 ),
-                Text(announcements[index].showContentPreview()),
+                Text(list[index].showContentPreview()),
               ],
             ),
           ),
