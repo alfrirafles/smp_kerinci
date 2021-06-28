@@ -21,19 +21,11 @@ class AnnouncementList extends StatelessWidget {
             padding: kAnnouncementCardPadding,
             child: Column(
               children: [
-                _AnnouncementImage(announcements: list),
-                Text(
-                  list[index].title,
-                  style: kAnnouncementTitleTextStyle,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      list[index].formatDateTimeDisplay(),
-                    ),
-                    Text('Posted by: ' + list[index].postedBy),
-                  ],
+                _Picture(announcements: list),
+                _Title(list[index].title),
+                _Description(
+                  datePosted: list[index].formatDateTimeDisplay(),
+                  postedBy: list[index].postedBy,
                 ),
                 Text(list[index].showContentPreview()),
               ],
@@ -45,8 +37,44 @@ class AnnouncementList extends StatelessWidget {
   }
 }
 
-class _AnnouncementImage extends StatelessWidget {
-  const _AnnouncementImage({
+class _Description extends StatelessWidget {
+  _Description({required this.datePosted, this.postedBy});
+
+  final String datePosted;
+  final String? postedBy;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: postedBy != null
+          ? MainAxisAlignment.spaceAround
+          : MainAxisAlignment.start,
+      children: [
+        Text(
+          datePosted,
+        ),
+        postedBy != null ? Text('Posted by: $postedBy') : Container(),
+      ],
+    );
+  }
+}
+
+class _Title extends StatelessWidget {
+  _Title(this.title);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      style: kAnnouncementTitleTextStyle,
+    );
+  }
+}
+
+class _Picture extends StatelessWidget {
+  const _Picture({
     Key? key,
     required this.announcements,
   }) : super(key: key);

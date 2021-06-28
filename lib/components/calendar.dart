@@ -34,8 +34,9 @@ class _CalendarState extends State<Calendar> {
         weekendTextStyle: kCalendarHolidayTextStyle,
       ),
       daysOfWeekStyle: DaysOfWeekStyle(
-          dowTextFormatter: (date, locale) =>
-              DateFormat.E(locale).format(date)[0]),
+        dowTextFormatter: (date, locale) =>
+            DateFormat.E(locale).format(date)[0],
+      ),
       onDaySelected: (DateTime selectedDay, DateTime focusedDay) =>
           setState(() {
         selectedDate = selectedDay;
@@ -43,6 +44,7 @@ class _CalendarState extends State<Calendar> {
       }),
       selectedDayPredicate: (DateTime daySelection) =>
           isSameDay(daySelection, selectedDate),
+      rangeSelectionMode: RangeSelectionMode.toggledOn,
     );
   }
 }
