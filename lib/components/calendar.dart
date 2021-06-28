@@ -25,9 +25,9 @@ class _CalendarState extends State<Calendar> {
         selectedTextStyle: kCalendarSelectedTextStyle,
         selectedDecoration: kCalendarSelectedDayStyle.copyWith(
           border: Border.all(
-            style: BorderStyle.solid,
-            width: 4.0,
-            color: Color(0xFF225523),
+            style: kCalendarBorderStyle,
+            width: kCalendarBorderWidth,
+            color: kCalendarBorderColor,
           ),
         ),
         holidayTextStyle: kCalendarHolidayTextStyle,

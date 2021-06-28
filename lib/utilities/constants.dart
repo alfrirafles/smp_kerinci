@@ -34,6 +34,9 @@ const kCalendarSelectedTextStyle = TextStyle(
 const kCalendarHolidayTextStyle = TextStyle(
   color: Colors.red,
 );
+const kCalendarBorderColor = Color(0xFF225523);
+const kCalendarBorderWidth = 4.0;
+const kCalendarBorderStyle = BorderStyle.solid;
 
 enum Orientation {
   leftToRight,
