@@ -38,6 +38,15 @@ const kCalendarBorderColor = Color(0xFF225523);
 const kCalendarBorderWidth = 4.0;
 const kCalendarBorderStyle = BorderStyle.solid;
 
+const kAnnouncementCardPadding = EdgeInsets.symmetric(
+  vertical: 12,
+  horizontal: 20,
+);
+const kAnnouncementTitleTextStyle = TextStyle(
+  fontSize: 24,
+  fontWeight: FontWeight.bold,
+);
+
 enum Orientation {
   leftToRight,
   rightToLeft,

@@ -41,10 +41,8 @@ class _CalendarState extends State<Calendar> {
         selectedDate = selectedDay;
         focusedDate = focusedDay;
       }),
-      selectedDayPredicate: (DateTime daySelection) => isSameDay(
-        daySelection,
-        selectedDate,
-      ),
+      selectedDayPredicate: (DateTime daySelection) =>
+          isSameDay(daySelection, selectedDate),
     );
   }
 }
