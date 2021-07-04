@@ -101,18 +101,18 @@ class _CalendarState extends State<Calendar> {
           ValueListenableBuilder<List<Event>>(
             valueListenable: _selectedEvents,
             builder: (context, value, _) {
-              return ListView.builder(
-                  itemCount: value.length,
-                  itemBuilder: (context, index) {
-                    return Expanded(
-                      child: Card(
+              return Flexible(
+                child: ListView.builder(
+                    itemCount: value.length,
+                    itemBuilder: (context, index) {
+                      return Card(
                         child: ListTile(
                           title: Text('${value[index].title}'),
                           subtitle: Text('${value[index].date}'),
                         ),
-                      ),
-                    );
-                  });
+                      );
+                    }),
+              );
             },
           ),
         ],
