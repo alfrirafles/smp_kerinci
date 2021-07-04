@@ -31,8 +31,8 @@ class _CalendarState extends State<Calendar> {
   }
 
   void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
-    if(!isSameDay(_selectedDate, selectedDay)){
-      setState((){
+    if (!isSameDay(_selectedDate, selectedDay)) {
+      setState(() {
         _selectedDate = selectedDay;
         _focusedDate = focusedDay;
       });
@@ -55,28 +55,21 @@ class _CalendarState extends State<Calendar> {
         children: [
           TableCalendar(
             calendarBuilders: CalendarBuilders(
-                // markerBuilder: (context, day, List<dynamic> events) {
-                //   Widget? marker = Container();
-                //   if (events.isNotEmpty) {
-                //     events.forEach((event) {
-                //       List<Event> eventItem = event;
-                //       eventItem.forEach((event) {
-                //         print(event.runtimeType);
-                //         marker = Container(
-                //           transform: Matrix4.translationValues(0, -4, 0),
-                //           height: 8,
-                //           width: 8,
-                //           decoration: BoxDecoration(
-                //             shape: BoxShape.circle,
-                //             color: event.markingColor,
-                //           ),
-                //         );
-                //       });
-                //     });
-                //     return marker;
-                //   }
-                // },
-                ),
+              markerBuilder: (context, day, List<Event> events) {
+                Widget? marker = Container();
+                if (events.isNotEmpty) {
+                  return Container(
+                    transform: Matrix4.translationValues(0, -4, 0),
+                    height: 8,
+                    width: 8,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.red,
+                    ),
+                  );
+                }
+              },
+            ),
             locale: kCalendarLocale,
             firstDay: DateTime.utc(2021, 1, 1),
             lastDay: DateTime.utc(2100, 12, 31),
@@ -106,15 +99,25 @@ class _CalendarState extends State<Calendar> {
           ),
           ValueListenableBuilder<List<Event>>(
             valueListenable: _selectedEvents,
-            builder: (context, value, _) {
+            builder: (context, eventList, _) {
               return Flexible(
                 child: ListView.builder(
-                    itemCount: value.length,
+                    itemCount: eventList.length,
                     itemBuilder: (context, index) {
                       return Card(
                         child: ListTile(
-                          title: Text('${value[index].title}'),
-                          subtitle: Text('${value[index].date}'),
+                          leading: Container(
+                            margin: EdgeInsets.all(2),
+                            alignment: Alignment.center,
+                            width: MediaQuery.of(context).size.width * 0.08,
+                            height: MediaQuery.of(context).size.height * 0.04,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: eventList[index].markingColor,
+                            ),
+                          ),
+                          title: Text('${eventList[index].title}'),
+                          subtitle: Text('${eventList[index].date}'),
                         ),
                       );
                     }),
