@@ -16,8 +16,7 @@ class AnnouncementPage extends StatelessWidget {
       ),
       Announcement(
         title: 'Judul Pengumuman Kedua',
-        content:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel tellus ut ipsum fringilla dictum ut a mi. In eget ex nulla. Ut sit amet mauris eu elit feugiat imperdiet.',
+        content: '',
         postedBy: 'Admin',
         postedDate: DateTime.now(),
       ),
