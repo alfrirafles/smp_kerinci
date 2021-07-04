@@ -30,6 +30,16 @@ class _CalendarState extends State<Calendar> {
     return eventSource[day] ?? [];
   }
 
+  void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
+    if(!isSameDay(_selectedDate, selectedDay)){
+      setState((){
+        _selectedDate = selectedDay;
+        _focusedDate = focusedDay;
+      });
+      _selectedEvents.value = _getEventsForDay(selectedDay);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -89,11 +99,7 @@ class _CalendarState extends State<Calendar> {
               dowTextFormatter: (date, locale) =>
                   DateFormat.E(locale).format(date)[0],
             ),
-            onDaySelected: (DateTime selectedDay, DateTime focusedDay) =>
-                setState(() {
-              _selectedDate = selectedDay;
-              _focusedDate = focusedDay;
-            }),
+            onDaySelected: _onDaySelected,
             selectedDayPredicate: (DateTime daySelection) =>
                 isSameDay(daySelection, _selectedDate),
             eventLoader: _getEventsForDay,
