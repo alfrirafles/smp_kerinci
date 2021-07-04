@@ -25,7 +25,7 @@ class AnnouncementList extends StatelessWidget {
                 _Title(list[index].title),
                 _Description(
                   datePosted: list[index].formatDateTimeDisplay(),
-                  postedBy: list[index].postedBy,
+                  poster: list[index].postedBy,
                 ),
                 Text(list[index].showContentPreview()),
               ],
@@ -38,22 +38,24 @@ class AnnouncementList extends StatelessWidget {
 }
 
 class _Description extends StatelessWidget {
-  _Description({required this.datePosted, this.postedBy});
+  _Description({required this.datePosted, this.poster});
 
   final String datePosted;
-  final String? postedBy;
+  final String? poster;
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: postedBy != null
+      mainAxisAlignment: poster != null && poster != ''
           ? MainAxisAlignment.spaceAround
           : MainAxisAlignment.start,
       children: [
         Text(
           datePosted,
         ),
-        postedBy != null ? Text('Posted by: $postedBy') : Container(),
+        poster != null && poster != ''
+            ? Text('Posted by: $poster')
+            : SizedBox(),
       ],
     );
   }
