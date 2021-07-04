@@ -6,11 +6,7 @@ class CalendarPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BasePage(
-      topNavTitle: 'Kalender',
-      topNavLeading: IconButton(
-        icon: Icon(Icons.menu),
-        onPressed: () {},
-      ),
+      topNavTitle: 'Jadwal Kegiatan',
       topNavTrailing: [
         IconButton(
           icon: Icon(Icons.share),
@@ -21,11 +17,7 @@ class CalendarPage extends StatelessWidget {
           onPressed: () {},
         )
       ],
-      body: Container(
-        child: Center(
-          child: Calendar(),
-        ),
-      ),
+      body: Calendar(),
     );
   }
 }
