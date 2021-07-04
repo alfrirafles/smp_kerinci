@@ -8,7 +8,7 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BasePage(
-      topNavTitle: 'SMP Kerinci',
+      topNavTitle: 'SMPN 1 Sungai Penuh',
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
