@@ -11,10 +11,20 @@ class EventHandler {
     ],
     DateTime.now(): [
       Event(
-        title: 'Event 2',
+        title: 'Event 1',
         date: DateTime.now(),
         markingColor: Colors.red,
-      )
-    ]
+      ),
+      Event(
+        title: 'Event 2',
+        date: DateTime.now(),
+        markingColor: Colors.green,
+      ),
+      Event(
+        title: 'Event 3',
+        date: DateTime.now(),
+        markingColor: Colors.grey,
+      ),
+    ],
   };
 }
