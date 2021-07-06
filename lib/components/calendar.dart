@@ -56,17 +56,51 @@ class _CalendarState extends State<Calendar> {
           TableCalendar(
             calendarBuilders: CalendarBuilders(
               markerBuilder: (context, day, List<Event> events) {
-                Widget? marker = Container();
                 if (events.isNotEmpty) {
-                  return Container(
-                    transform: Matrix4.translationValues(0, -4, 0),
-                    height: 8,
-                    width: 8,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.red,
-                    ),
-                  );
+                  List<Widget> markers = [];
+                  events.forEach((event) {
+                    markers.add(
+                      Container(
+                        transform: Matrix4.translationValues(0, -4, 0),
+                        height: 8,
+                        width: 8,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: event.markingColor,
+                        ),
+                      ),
+                    );
+                  });
+                  if (markers.length > 3) {
+                    String textMarkerDisplay = '${markers.length}';
+                    double markerBackgroundSize = 8;
+                    if (markers.length > 9) {
+                      textMarkerDisplay = '9+';
+                      markerBackgroundSize = 9;
+                    }
+                    return Container(
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: CircleAvatar(
+                          maxRadius: markerBackgroundSize,
+                          backgroundColor: Colors.blueGrey,
+                          child: Text(
+                            '$textMarkerDisplay',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 9,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  } else {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: markers,
+                    );
+                  }
                 }
               },
             ),
