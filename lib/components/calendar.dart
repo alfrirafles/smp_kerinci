@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:smp_kerinci/components/marker.dart';
+import 'package:smp_kerinci/components/number_marker.dart';
 import 'package:intl/intl.dart';
 import 'package:smp_kerinci/utilities/constants.dart';
 import 'package:smp_kerinci/models/event.dart';
@@ -60,15 +62,7 @@ class _CalendarState extends State<Calendar> {
                   List<Widget> markers = [];
                   events.forEach((event) {
                     markers.add(
-                      Container(
-                        transform: Matrix4.translationValues(0, -4, 0),
-                        height: 8,
-                        width: 8,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: event.markingColor,
-                        ),
-                      ),
+                      Marker(color: event.markingColor),
                     );
                   });
                   if (markers.length > 3) {
@@ -78,23 +72,9 @@ class _CalendarState extends State<Calendar> {
                       textMarkerDisplay = '9+';
                       markerBackgroundSize = 9;
                     }
-                    return Container(
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: CircleAvatar(
-                          maxRadius: markerBackgroundSize,
-                          backgroundColor: Colors.blueGrey,
-                          child: Text(
-                            '$textMarkerDisplay',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 9,
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
+                    return NumberMarker(
+                        markerBackgroundSize: markerBackgroundSize,
+                        textMarkerDisplay: textMarkerDisplay);
                   } else {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.center,
