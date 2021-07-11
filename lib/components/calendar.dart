@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:smp_kerinci/components/marker.dart';
 import 'package:smp_kerinci/components/number_marker.dart';
+import 'package:smp_kerinci/components/event_card.dart';
 import 'package:intl/intl.dart';
 import 'package:smp_kerinci/utilities/constants.dart';
 import 'package:smp_kerinci/models/event.dart';
@@ -118,25 +119,31 @@ class _CalendarState extends State<Calendar> {
                 child: ListView.builder(
                     itemCount: eventList.length,
                     itemBuilder: (context, index) {
-                      return Card(
-                        child: ListTile(
-                          leading: Container(
-                            margin: EdgeInsets.all(2),
-                            alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width * 0.08,
-                            height: MediaQuery.of(context).size.height * 0.04,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: eventList[index].markingColor,
-                            ),
-                          ),
-                          title: Text('${eventList[index].title}'),
-                          subtitle: Text('${eventList[index].date}'),
-                        ),
+                      return EventCard(
+                        color: eventList[index].markingColor,
+                        name: eventList[index].title,
+                        schedule: eventList[index].date,
                       );
                     }),
               );
             },
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 20, right: 20),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: FloatingActionButton.extended(
+                label: Text(
+                  'Tambahkan Kegiatan',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                icon: Icon(Icons.add),
+                onPressed: () {},
+                backgroundColor: Colors.green,
+              ),
+            ),
           ),
         ],
       ),
