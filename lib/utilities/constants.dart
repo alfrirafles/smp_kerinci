@@ -37,6 +37,15 @@ const kCalendarHolidayTextStyle = TextStyle(
 const kCalendarBorderColor = Color(0xFF225523);
 const kCalendarBorderWidth = 4.0;
 const kCalendarBorderStyle = BorderStyle.solid;
+const kCalendarMarkerShape = BoxShape.circle;
+const kCalendarMarkerHeight = 8.0;
+const kCalendarMarkerWidth = kCalendarMarkerHeight;
+const kCalendarMarkerNumberStyle = TextStyle(
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+  fontSize: 9,
+);
+const kCalendarMarkerNumberColor = Colors.blueGrey;
 
 const kAnnouncementCardPadding = EdgeInsets.symmetric(
   vertical: 12,
