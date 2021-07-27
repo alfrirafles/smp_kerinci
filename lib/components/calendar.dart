@@ -3,6 +3,7 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:smp_kerinci/components/marker.dart';
 import 'package:smp_kerinci/components/number_marker.dart';
 import 'package:smp_kerinci/components/event_card.dart';
+import 'package:smp_kerinci/components/create_item_modal.dart';
 import 'package:intl/intl.dart';
 import 'package:smp_kerinci/utilities/constants.dart';
 import 'package:smp_kerinci/models/event.dart';
@@ -128,22 +129,16 @@ class _CalendarState extends State<Calendar> {
               );
             },
           ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 20, right: 20),
-            child: Align(
-              alignment: Alignment.bottomRight,
-              child: FloatingActionButton.extended(
-                label: Text(
-                  'Tambahkan Kegiatan',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                icon: Icon(Icons.add),
-                onPressed: () {},
-                backgroundColor: Colors.green,
+          CreateItemModal(
+            buttonColor: Colors.green,
+            buttonDescription: 'Tambahkan Kegiatan',
+            modalContent: [
+              Text('Hello World'),
+              ElevatedButton(
+                child: Text('Confirm'),
+                onPressed: () => Navigator.pop(context),
               ),
-            ),
+            ],
           ),
         ],
       ),
