@@ -20,7 +20,7 @@ class _CalendarState extends State<Calendar> {
   DateTime? _selectedDate;
   DateTime _focusedDate = DateTime.now();
 
-  int getHashCode(DateTime key) {
+  int _getHashCode(DateTime key) {
     return key.day * 1000000 + key.month * 10000 + key.year;
   }
 
@@ -28,7 +28,7 @@ class _CalendarState extends State<Calendar> {
     var events = Provider.of<EventHandler>(context, listen: false).events;
     var eventSource = LinkedHashMap<DateTime, List<Event>>(
       equals: isSameDay,
-      hashCode: getHashCode,
+      hashCode: _getHashCode,
     )..addAll(events);
     return eventSource[day] ?? [];
   }
