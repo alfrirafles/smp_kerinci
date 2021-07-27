@@ -67,12 +67,12 @@ class _CalendarState extends State<Calendar> {
                       Marker(color: event.markingColor),
                     );
                   });
-                  if (markers.length > 3) {
+                  if (markers.length > kCalendarMarkerDisplayOverflowLimit) {
                     String textMarkerDisplay = '${markers.length}';
                     double markerBackgroundSize = 8;
-                    if (markers.length > 9) {
-                      textMarkerDisplay = '9+';
-                      markerBackgroundSize = 9;
+                    if (markers.length > kCalendarMarkerDigitShowLimit) {
+                      textMarkerDisplay = '$kCalendarMarkerDigitShowLimit+';
+                      markerBackgroundSize = kCalendarMarkerDigitShowLimit;
                     }
                     return NumberMarker(
                         markerBackgroundSize: markerBackgroundSize,

@@ -47,6 +47,9 @@ const kCalendarMarkerNumberStyle = TextStyle(
 );
 const kCalendarMarkerNumberColor = Colors.blueGrey;
 
+const kCalendarMarkerDisplayOverflowLimit = 3;
+const double kCalendarMarkerDigitShowLimit = 9;
+
 const kAnnouncementCardPadding = EdgeInsets.symmetric(
   vertical: 12,
   horizontal: 20,
