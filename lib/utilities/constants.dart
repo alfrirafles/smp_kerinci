@@ -56,6 +56,10 @@ const kAnnouncementTitleTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const kModalButtonDefaultColor = Colors.blue;
+const kModalButtonPadding = EdgeInsets.only(bottom: 20, right: 20);
+const kModalButtonTextStyle = TextStyle(fontWeight: FontWeight.bold);
+
 enum Orientation {
   leftToRight,
   rightToLeft,
