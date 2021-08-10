@@ -62,6 +62,15 @@ const kAnnouncementTitleTextStyle = TextStyle(
 const kModalButtonDefaultColor = Colors.blue;
 const kModalButtonPadding = EdgeInsets.only(bottom: 20, right: 20);
 const kModalButtonTextStyle = TextStyle(fontWeight: FontWeight.bold);
+const kModalItemsHorizontalPadding = 0.08;
+const kModalItemsGapHeight = 0.02;
+
+const kDatePickerButtonPadding = EdgeInsets.all(20.0);
+const kDatePickerButtonBorderWidth = 1.5;
+const kDatePickerButtonBorderColor = Colors.grey;
+const kDatePickerButtonTextColor = Colors.green;
+
+
 
 enum Orientation {
   leftToRight,
