@@ -27,12 +27,7 @@ class CreateItemModal extends StatelessWidget {
         icon: Icon(Icons.add),
         onPressed: () => showModalBottomSheet<void>(
           context: context,
-          builder: (BuildContext context) => Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: modalContent!,
-            ),
-          ),
+          builder: (BuildContext context) => _BaseLayout(content: modalContent),
         ),
       );
     } else {
@@ -42,12 +37,7 @@ class CreateItemModal extends StatelessWidget {
             buttonColor == null ? kModalButtonDefaultColor : buttonColor!,
         onPressed: () => showModalBottomSheet<void>(
           context: context,
-          builder: (BuildContext context) => Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: modalContent!,
-            ),
-          ),
+          builder: (BuildContext context) => _BaseLayout(content: modalContent),
         ),
       );
     }
@@ -57,6 +47,32 @@ class CreateItemModal extends StatelessWidget {
       child: Align(
         alignment: Alignment.bottomRight,
         child: modalButton,
+      ),
+    );
+  }
+}
+
+class _BaseLayout extends StatelessWidget {
+  const _BaseLayout({
+    Key? key,
+    required this.content,
+  }) : super(key: key);
+
+  final List<Widget>? content;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width *
+              kModalItemsHorizontalPadding,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: content!,
+        ),
       ),
     );
   }
