@@ -66,7 +66,7 @@ const kModalItemsHorizontalPadding = 0.08;
 const kModalItemsGapHeight = 0.02;
 
 const kDatePickerButtonPadding = EdgeInsets.fromLTRB(20, 20, 120, 20);
-const kDatePickerButtonBorderWidth = 1.5;
+const kDatePickerButtonBorderWidth = 1.1;
 const kDatePickerButtonBorderColor = Colors.grey;
 const kDatePickerButtonTextColor = Colors.green;
 
