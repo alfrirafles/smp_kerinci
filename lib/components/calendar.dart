@@ -133,11 +133,11 @@ class _CalendarState extends State<Calendar> {
           ),
           CreateItemModal(
             buttonColor: Colors.green,
-            buttonDescription: 'Penambahan Kegiatan Baru',
+            buttonDescription: 'Tambahkan Kegiatan',
             modalContent: [
               Align(
                   alignment: Alignment.center,
-                  child: Text('Tambahkan Kegiatan')),
+                  child: Text('Penambahan Kegiatan Baru')),
               SizedBox(
                 height:
                     MediaQuery.of(context).size.height * kModalItemsGapHeight,
@@ -153,7 +153,7 @@ class _CalendarState extends State<Calendar> {
                     MediaQuery.of(context).size.height * kModalItemsGapHeight,
               ),
               Text(
-                'Tanggal Mulai Kegiatan',
+                'Durasi Kegiatan',
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
