@@ -4,6 +4,7 @@ import 'package:smp_kerinci/components/marker.dart';
 import 'package:smp_kerinci/components/number_marker.dart';
 import 'package:smp_kerinci/components/event_card.dart';
 import 'package:smp_kerinci/components/create_item_modal.dart';
+import 'package:smp_kerinci/components/date_picker_button.dart';
 import 'package:intl/intl.dart';
 import 'package:smp_kerinci/utilities/constants.dart';
 import 'package:smp_kerinci/models/event.dart';
@@ -20,6 +21,7 @@ class _CalendarState extends State<Calendar> {
   late final ValueNotifier<List<Event>> _selectedEvents;
   DateTime? _selectedDate;
   DateTime _focusedDate = DateTime.now();
+  DateTime _modalPickedDate = DateTime.now();
 
   int _getHashCode(DateTime key) {
     return key.day * 1000000 + key.month * 10000 + key.year;
@@ -131,13 +133,47 @@ class _CalendarState extends State<Calendar> {
           ),
           CreateItemModal(
             buttonColor: Colors.green,
-            buttonDescription: 'Tambahkan Kegiatan',
+            buttonDescription: 'Penambahan Kegiatan Baru',
             modalContent: [
-              Text('Hello World'),
-              ElevatedButton(
-                child: Text('Confirm'),
-                onPressed: () => Navigator.pop(context),
+              Align(
+                  alignment: Alignment.center,
+                  child: Text('Tambahkan Kegiatan')),
+              SizedBox(
+                height:
+                    MediaQuery.of(context).size.height * kModalItemsGapHeight,
               ),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Nama Kegiatan',
+                ),
+              ),
+              SizedBox(
+                height:
+                    MediaQuery.of(context).size.height * kModalItemsGapHeight,
+              ),
+              Text(
+                'Tanggal Mulai Kegiatan',
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  DatePickerButton(initialDateDisplay: _modalPickedDate),
+                  Text('-'),
+                  DatePickerButton(initialDateDisplay: _modalPickedDate),
+                ],
+              ),
+              SizedBox(
+                  height: MediaQuery.of(context).size.height *
+                      kModalItemsGapHeight),
+              Align(
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  child: Text('Tambahkan Kegiatan'),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ),
+              Container(),
             ],
           ),
         ],
