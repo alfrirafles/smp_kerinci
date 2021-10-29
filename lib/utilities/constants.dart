@@ -69,8 +69,7 @@ const kDatePickerButtonPadding = EdgeInsets.fromLTRB(20, 20, 120, 20);
 const kDatePickerButtonBorderWidth = 1.1;
 const kDatePickerButtonBorderColor = Colors.grey;
 const kDatePickerButtonTextColor = Colors.green;
-
-
+const kDatePickerButtonDisabledColor = Color(0xFFd3d3d3);
 
 enum Orientation {
   leftToRight,

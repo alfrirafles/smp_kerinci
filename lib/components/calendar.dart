@@ -22,6 +22,7 @@ class _CalendarState extends State<Calendar> {
   DateTime? _selectedDate;
   DateTime _focusedDate = DateTime.now();
   DateTime _modalPickedDate = DateTime.now();
+  bool checkedState = false;
 
   int _getHashCode(DateTime key) {
     return key.day * 1000000 + key.month * 10000 + key.year;
@@ -136,8 +137,15 @@ class _CalendarState extends State<Calendar> {
             buttonDescription: 'Tambahkan Kegiatan',
             modalContent: [
               Align(
-                  alignment: Alignment.center,
-                  child: Text('Penambahan Kegiatan Baru')),
+                alignment: Alignment.center,
+                child: Text(
+                  'Penambahan Kegiatan Baru',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
               SizedBox(
                 height:
                     MediaQuery.of(context).size.height * kModalItemsGapHeight,
@@ -146,22 +154,52 @@ class _CalendarState extends State<Calendar> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Nama Kegiatan',
+                  alignLabelWithHint: true,
                 ),
               ),
               SizedBox(
                 height:
                     MediaQuery.of(context).size.height * kModalItemsGapHeight,
               ),
-              Text(
-                'Durasi Kegiatan',
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Durasi Kegiatan',
+                  ),
+                  Row(
+                    children: [
+                      Text('Lebih dari satu hari?'),
+                      Checkbox(
+                        value: checkedState,
+                        onChanged: (bool? value) {},
+                      ),
+                    ],
+                  ),
+                ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  DatePickerButton(initialDateDisplay: _modalPickedDate),
+                  DatePickerButton(
+                    initialDateDisplay: _selectedDate!,
+                    enabled: true,
+                  ),
                   Text('-'),
-                  DatePickerButton(initialDateDisplay: _modalPickedDate),
+                  DatePickerButton(initialDateDisplay: _selectedDate!),
                 ],
+              ),
+              SizedBox(
+                  height: MediaQuery.of(context).size.height *
+                      kModalItemsGapHeight),
+              Text('Deskripsi Kegiatan'),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+              TextField(
+                maxLines: 4,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Input deskripsi kegiatan..',
+                ),
               ),
               SizedBox(
                   height: MediaQuery.of(context).size.height *

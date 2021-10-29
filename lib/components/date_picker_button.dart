@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:smp_kerinci/utilities/constants.dart';
 
 class DatePickerButton extends StatelessWidget {
-  const DatePickerButton({
-    Key? key,
-    required DateTime initialDateDisplay,
-  })  : _pickedDate = initialDateDisplay,
-        super(key: key);
+  // const DatePickerButton({
+  //   Key? key,
+  //   required DateTime initialDateDisplay,
+  // })  : _pickedDate = initialDateDisplay,
+  //       super(key: key);
+  DatePickerButton({required DateTime initialDateDisplay, this.enabled = false})
+      : _pickedDate = initialDateDisplay;
 
   final DateTime _pickedDate;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +23,8 @@ class DatePickerButton extends StatelessWidget {
             color: kDatePickerButtonBorderColor,
           ),
         ),
+        backgroundColor: MaterialStateProperty.all(
+            enabled == true ? Colors.white : kDatePickerButtonDisabledColor),
         padding: MaterialStateProperty.all(
           kDatePickerButtonPadding,
         ),
@@ -34,7 +39,7 @@ class DatePickerButton extends StatelessWidget {
             '/' +
             '${_pickedDate.year}',
       ),
-      onPressed: () {},
+      onPressed: enabled == true ? () {} : null,
     );
   }
 }
